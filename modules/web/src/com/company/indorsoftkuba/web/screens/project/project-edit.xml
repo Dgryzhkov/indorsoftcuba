@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://projectEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.indorsoftkuba.web.screens.project">
+    <data>
+        <instance id="projectDc"
+                  class="com.company.indorsoftkuba.entity.Project">
+            <view extends="_local">
+                <property name="employees" view="_minimal">
+                    <property name="projects" view="_local"/>
+                </property>
+            </view>
+            <loader/>
+            <collection id="employeesDc" property="employees"/>
+        </instance>
+        <collection id="collection" class="com.company.indorsoftkuba.entity.Employee">
+            <view extends="_local">
+                <property name ="projects"/>
+            </view>
+            <loader>
+                <query>
+                    <![CDATA[select e from indorsoftkuba_Employee e ]]>
+                </query>
+            </loader>
+            <collection id="projectsDc" property="projects"/>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="projectDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+            </column>
+        </form>
+        <groupBox id="employeesBox" caption="msg://com.company.indorsoftkuba.entity/Project.employees">
+            <groupTable id="employeesTable" dataContainer="collection" width="100%" height="200px">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit" constraintOperationType="update"/>
+                    <action id="remove" constraintOperationType="delete"/>
+                </actions>
+                <columns>
+                    <column id="fullName" editable="true"/>
+                    <column id="checkBoxRendererColumn" generator="gen"/>
+                </columns>
+            </groupTable>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

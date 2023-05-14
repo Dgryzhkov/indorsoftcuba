@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-indorsoftkuba" insertBefore="administration" caption="mainMsg://menu_config.application-indorsoftkuba">
+        <item screen="indorsoftkuba_Employee.browse" caption="mainMsg://menu_config.indorsoftkuba_Employee.browse"/>
+        <item screen="indorsoftkuba_Project.browse" caption="mainMsg://menu_config.indorsoftkuba_Project.browse"/>
+    </menu>
+</menu-config>
