@@ -43,7 +43,8 @@
                 </actions>
                 <columns>
                     <column id="fullName" editable="true"/>
-                    <column id="checkBoxRendererColumn" generator="gen"/>
+                    <column id="checkBoxRendererColumn" generator="gen"
+                            caption="&#1059;&#1095;&#1072;&#1089;&#1090;&#1080;&#1077; &#1074; &#1087;&#1088;&#1086;&#1077;&#1082;&#1090;&#1077;"/>
                 </columns>
             </groupTable>
         </groupBox>
